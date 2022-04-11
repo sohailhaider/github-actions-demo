@@ -2,21 +2,13 @@ name: CI
 on: push
 
 jobs:
-  test:
+  version:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+      - uses: actions/checkout@v2
         with:
           token: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
-    - uses: actions/setup-node@v1
-        with:
-          token: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
-    - run: npm install
-    - run: npm test
-    - run: git switch -c master
-    - run: git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
-    - run: git config user.name "$GITHUB_ACTOR"
-    - run: yarn
-    - run: npm version prerelease --preid beta
-    - run: git push && git push --tags beta
-    - run: yarn publish
+      - run: git config --global user.name 'AboutBits Tech'
+      - run: git config --global user.email 'tech@aboutbits.it'
+      - run: npm version patch -m "[RELEASE] %s"
+      - run: git push
