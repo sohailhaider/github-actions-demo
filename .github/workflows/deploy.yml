@@ -2,11 +2,11 @@ name: CI
 on: push
 
 jobs:
-  version:
+  deploy-yarn:
     runs-on: ubuntu-latest
     if: "startsWith(github.event.head_commit.message, '[RELEASE]')"
     steps:
       - uses: actions/checkout@v2
         with:
           token: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
-      - run: npm run test
+      - run: yarn
