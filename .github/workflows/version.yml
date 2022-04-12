@@ -10,8 +10,6 @@ jobs:
     if: "!startsWith(github.event.head_commit.message, '[BETA RELEASE]')"
     steps:
       - uses: actions/checkout@v2
-        with:
-          token: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
       - run: |
           set +x
           echo $GITHUB_ACTOR
