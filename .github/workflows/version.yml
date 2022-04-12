@@ -18,8 +18,3 @@ jobs:
           git config --global user.email 'sohail.haider@autoscout24.com'
           npm version prerelease --preid beta -m "[BETA RELEASE] %s"
           git push && git push --tags
-          actions/checkout@v2
-          actions/setup-node@v1
-          npm publish --tag beta
-        env: 
-          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
