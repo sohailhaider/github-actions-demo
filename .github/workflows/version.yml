@@ -3,6 +3,10 @@ on:
   push:
     branches:    
       - 'master'
+  pull_request:
+    types: [opened, reopened, edited, synchronize]
+    branches:    
+      - 'master'
 
 jobs:
   version:
