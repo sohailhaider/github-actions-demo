@@ -1,6 +1,6 @@
 {
   "name": "github-actions-demo-sohail",
-  "version": "1.0.11-beta.65",
+  "version": "1.0.11-beta.66",
   "main": "index.js",
   "repository": "git@github.com:cplee/github-actions-demo.git",
   "author": "Casey Lee <cplee@nektos.com>",
