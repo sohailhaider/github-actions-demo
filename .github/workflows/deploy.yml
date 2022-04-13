@@ -1,13 +1,9 @@
 name: CI
-on: 
+on:  
   push:
-    branches:    
-      - 'master'
-  pull_request:
-    types: [opened, reopened, edited, synchronize]
-    branches:    
-      - 'master'
-      
+    tags:        
+      - '**-beta.**'
+
 jobs:
   deploy-yarn:
     runs-on: ubuntu-latest
