@@ -7,7 +7,7 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    if: "startsWith(github.event.head_commit.message, '[BETA RELEASE]')"
+    if: "startsWith(github.event.head_commit.message, '[BETA RELEASE STOPED]')"
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1

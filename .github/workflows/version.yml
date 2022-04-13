@@ -22,4 +22,12 @@ jobs:
           git config --global user.email 'sohail.haider@autoscout24.com'
           npm version prerelease --preid beta -m "[BETA RELEASE] %s"
           git push && git push --tags
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+          registry-url: https://registry.npmjs.org
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+      - run: npm publish --tag beta
+        env: 
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 
