@@ -14,11 +14,12 @@ jobs:
     if: "!startsWith(github.event.head_commit.message, '[RELEASE]')"
     steps:
       - uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
       - run: |
           set +x
-          echo $GITHUB_ACTOR
-          git config user.name $GITHUB_ACTOR
-          git config user.email $GITHUB_ACTOR@users.noreply.github.com
-          npm version prerelease --preid beta -m "[RELEASE] %s"
-          git push
+          git config --global user.name 'Sohail Haider'
+          git config --global user.email 'sohail.haider@autoscout24.com'
+          npm version prerelease --preid beta -m "[BETA RELEASE] %s"
+          git push && git push --tags
 
