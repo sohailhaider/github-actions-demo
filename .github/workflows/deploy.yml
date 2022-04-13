@@ -4,13 +4,14 @@ on: push
 jobs:
   deploy-yarn:
     runs-on: ubuntu-latest
-    if: "startsWith(github.event.head_commit.message, '[BETA RELEASE]')"
+    if: "startsWith(github.event.head_commit.message, '[RELEASE]')"
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
         with:
-          node-version: 16
+          node-version: 12
           registry-url: https://registry.npmjs.org
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
       - run: npm publish --tag beta
         env: 
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
