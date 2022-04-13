@@ -22,9 +22,8 @@ jobs:
           git push && git push --tags
       - uses: actions/setup-node@v1
         with:
-          node-version: 12
+          node-version: 16
           registry-url: https://registry.npmjs.org
-          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
       - run: npm publish --tag beta
         env: 
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
