@@ -20,5 +20,5 @@ jobs:
           git config user.name $GITHUB_ACTOR
           git config user.email $GITHUB_ACTOR@users.noreply.github.com
           npm version prerelease --preid beta -m "[BETA RELEASE] %s"
-          git push && git push --tags
+          git push
 
