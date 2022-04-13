@@ -11,7 +11,7 @@ on:
 jobs:
   version:
     runs-on: ubuntu-latest
-    if: "!startsWith(github.event.head_commit.message, '[BETA RELEASE]')"
+    if: "!startsWith(github.event.head_commit.message, '[RELEASE]')"
     steps:
       - uses: actions/checkout@v2
       - run: |
@@ -19,6 +19,6 @@ jobs:
           echo $GITHUB_ACTOR
           git config user.name $GITHUB_ACTOR
           git config user.email $GITHUB_ACTOR@users.noreply.github.com
-          npm version prerelease --preid beta -m "[BETA RELEASE] %s"
+          npm version prerelease --preid beta -m "[RELEASE] %s"
           git push
 
