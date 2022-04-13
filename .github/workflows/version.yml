@@ -21,12 +21,4 @@ jobs:
           git config user.email $GITHUB_ACTOR@users.noreply.github.com
           npm version prerelease --preid beta -m "[BETA RELEASE] %s"
           git push
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-        with:
-          node-version: 16
-          registry-url: https://registry.npmjs.org
-      - run: npm publish --tag beta
-        env: 
-          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 
